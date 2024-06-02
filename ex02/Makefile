@@ -6,11 +6,10 @@ CC		= c++
 FLAGS		= -Wall -Wextra -Iinc -std=c++98
 RM		= rm -rf
 
-SRCS_DIR	= src
 OBJS_DIR	= bin
-
-SRCS		= $(shell find $(SRCS_DIR) -type f -name '*.cpp')
-OBJS		= $(patsubst src/%.cpp, $(OBJS_DIR)/%.o, $(SRCS))
+ 
+SRCS		= Account.cpp tests.cpp
+OBJS		= $(patsubst %.cpp, $(OBJS_DIR)/%.o, $(SRCS))
 
 # **************************************************************************** #
 # COLORS
@@ -34,7 +33,7 @@ $(NAME): $(OBJS)
 	@$(CC) $(FLAGS) $(OBJS) -o $(NAME)
 	@echo "$(GREEN)[Success]$(END_COLOR) Account is ready !"
 
-$(OBJS_DIR)/%.o: src/%.cpp
+$(OBJS_DIR)/%.o: %.cpp
 	@mkdir -p $(@D)
 	@$(CC) $(FLAGS) -c $< -o $@
 
