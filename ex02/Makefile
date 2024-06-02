@@ -1,9 +1,9 @@
 # **************************************************************************** #
 # VARIABLES
 
-NAME		= phonebook
+NAME		= account
 CC		= c++
-FLAGS		= -Wall -Wextra -Iinc -std=c++98 -g3
+FLAGS		= -Wall -Wextra -Iinc -std=c++98
 RM		= rm -rf
 
 SRCS_DIR	= src
@@ -32,7 +32,7 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	@$(CC) $(FLAGS) $(OBJS) -o $(NAME)
-	@echo "$(GREEN)[Success]$(END_COLOR) Phonebook is ready !"
+	@echo "$(GREEN)[Success]$(END_COLOR) Account is ready !"
 
 $(OBJS_DIR)/%.o: src/%.cpp
 	@mkdir -p $(@D)
