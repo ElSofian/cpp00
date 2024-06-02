@@ -3,7 +3,7 @@
 
 NAME		= account
 CC		= c++
-FLAGS		= -Wall -Wextra -Iinc -std=c++98
+FLAGS		= -Wall -Wextra -Werror -Iinc -std=c++98
 RM		= rm -rf
 
 OBJS_DIR	= bin

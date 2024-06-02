@@ -3,7 +3,7 @@
 
 NAME		= phonebook
 CC		= c++
-FLAGS		= -Wall -Wextra -Iinc -std=c++98 -g3
+FLAGS		= -Wall -Wextra -Werror -Iinc -std=c++98 -g3
 RM		= rm -rf
 
 SRCS_DIR	= src
