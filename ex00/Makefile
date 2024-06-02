@@ -23,7 +23,7 @@ END_COLOR   = \033[0;39m
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
+$(NAME):
 	@$(CC) $(CFLAGS) megaphone.cpp -o $(NAME)
 	@echo "$(GREEN)[Success]$(END_COLOR) Megaphone is ready !"
 
