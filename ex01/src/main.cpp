@@ -6,19 +6,24 @@ void	Phonebook::add(Phonebook &phonebook)
 	Contact	contact;
 	
 	std::cout << "👨‍🦲 First name: ";
-	std::getline(std::cin, value);
+	if (std::getline(std::cin, value).eof())
+		return ;
 	contact.setFirstName(value);
 	std::cout << "👨‍🦲 Last name: ";
-	std::getline(std::cin, value);
+	if (std::getline(std::cin, value).eof())
+		return ;
 	contact.setLastName(value);
 	std::cout << "🤝 Nickname: ";
-	std::getline(std::cin, value);
+	if (std::getline(std::cin, value).eof())
+		return ;
 	contact.setNickname(value);
 	std::cout << "📱 Phone number: ";
-	std::getline(std::cin, value);
+	if (std::getline(std::cin, value).eof())
+		return ;
 	contact.setPhoneNumber(value);
 	std::cout << "🕵️‍♂️ Darkest secret: ";
-	std::getline(std::cin, value);
+	if (std::getline(std::cin, value).eof())
+		return ;
 	contact.setDarkestSecret(value);
 
 	if (phonebook.getIndex() > 7)
@@ -49,7 +54,8 @@ void	Phonebook::search(Phonebook &phonebook)
 	if (phonebook.getSize() == 0)
 		return ;
 	std::cout << '\n' << "🔍 Enter the index of the contact: ";
-	std::getline(std::cin, output);
+	if (std::getline(std::cin, output).eof())
+		return ;
 	std::cout << '\n';
 	for (size_t i = 0; i < output.length(); i++)
 		if (!std::isdigit(output[i])) return ;
@@ -75,7 +81,8 @@ int	main(void)
 	while (1)
 	{
 		std::cout << "📞 Phonebook: ";
-		std::getline(std::cin, output);
+		if (std::getline(std::cin, output).eof())
+			return (0);
 		if (output == "ADD")
 			phonebook.add(phonebook);
 		else if (output == "SEARCH")
