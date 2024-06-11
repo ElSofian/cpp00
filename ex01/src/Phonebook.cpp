@@ -1,4 +1,26 @@
-#include "phonebook.hpp"
+#include "Phonebook.hpp"
+
+Phonebook::Phonebook(int index, int size) {
+	this->index = index;
+	this->size = size;
+}
+Phonebook::~Phonebook() {}
+
+void Phonebook::increaseIndex() {
+	this->index++;
+	if (this->index > 7)
+		this->index = 0;
+}
+int Phonebook::getIndex() {
+	return this->index;
+}
+void Phonebook::increaseSize() {
+	if (size < 8)
+		this->size++;
+}
+int Phonebook::getSize() {
+	return this->size;
+}
 
 void	Phonebook::add(Phonebook &phonebook)
 {
@@ -6,24 +28,39 @@ void	Phonebook::add(Phonebook &phonebook)
 	Contact	contact;
 	
 	std::cout << "👨‍🦲 First name: ";
-	if (std::getline(std::cin, value).eof())
+	if (std::getline(std::cin, value).eof() || value.empty() || !std::isalpha(value[0]))
+	{
+		std::cout << "Invalid input." << std::endl;
 		return ;
+	}
 	contact.setFirstName(value);
 	std::cout << "👨‍🦲 Last name: ";
-	if (std::getline(std::cin, value).eof())
+	if (std::getline(std::cin, value).eof() || value.empty() || !std::isalpha(value[0]))
+	{
+		std::cout << "Invalid input." << std::endl;
 		return ;
+	}
 	contact.setLastName(value);
 	std::cout << "🤝 Nickname: ";
-	if (std::getline(std::cin, value).eof())
+	if (std::getline(std::cin, value).eof() || value.empty() || !std::isalpha(value[0]))
+	{
+		std::cout << "Invalid input." << std::endl;
 		return ;
+	}
 	contact.setNickname(value);
 	std::cout << "📱 Phone number: ";
-	if (std::getline(std::cin, value).eof())
+	if (std::getline(std::cin, value).eof() || value.empty() || !std::isalpha(value[0]))
+		{
+		std::cout << "Invalid input." << std::endl;
 		return ;
+	}
 	contact.setPhoneNumber(value);
 	std::cout << "🕵️‍♂️ Darkest secret: ";
-	if (std::getline(std::cin, value).eof())
+	if (std::getline(std::cin, value).eof() || value.empty() || !std::isalpha(value[0]))
+	{
+		std::cout << "Invalid input." << std::endl;
 		return ;
+	}
 	contact.setDarkestSecret(value);
 
 	if (phonebook.getIndex() > 7)
@@ -60,6 +97,8 @@ void	Phonebook::search(Phonebook &phonebook)
 	for (size_t i = 0; i < output.length(); i++)
 		if (!std::isdigit(output[i])) return ;
 	index = stringToInt(output);
+	if (index == -1)
+		return ;
 	if (index >= 0 && index < phonebook.getSize())
 	{
 		std::cout << "🗒️  - Contact:" << std::endl;

@@ -2,9 +2,9 @@
 # VARIABLES
 
 NAME		= phonebook
-CC		= c++
+CC			= c++
 FLAGS		= -Wall -Wextra -Werror -Iinc -std=c++98 -g3
-RM		= rm -rf
+RM			= rm -rf
 
 SRCS_DIR	= src
 OBJS_DIR	= bin
@@ -17,11 +17,11 @@ OBJS		= $(patsubst src/%.cpp, $(OBJS_DIR)/%.o, $(SRCS))
 
 GREEN		= \033[0;32m
 GREY		= \033[1;30m
-PURPLE	= \033[0;35m
+PURPLE		= \033[0;35m
 BLUE		= \033[0;94m
 CYAN		= \033[0;36m
 PINK		= \033[1;35m
-RED		= \033[0;31m
+RED			= \033[0;31m
 END_COLOR	= \033[0;39m
 
 
